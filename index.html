@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+	<div class='card__content'>
+      <div id='league-table' class='table-responsive' >
+        <table class='table table--lg team-roster-table table-hover'>
+          <thead class="fixedHeader">
+            <th class='team-roster-table__name'>Название</th>
+            <th class='team-roster-table__name'>Стоимость</th>
+            <th class='team-roster-table__name show'>Рыночная капитализация</th>
+            <th class='team-roster-table__name show'>Суточный объем</th>
+          </thead>
+		
+          <tbody class="scrollContent">
+            <tr v-for="(league,index) in even(leagues)" v-if="index < 15" class='scroll-table'>
+              <td class='team-roster-table__name'>{{ league.name }}</td>
+              <td class='team-roster-table__name'>{{ league.priceUsd }}</td>
+              <td class='team-roster-table__name show'>{{ league.marketCapUsd }}</td>
+              <td class='team-roster-table__name show'>{{ league.volumeUsd24Hr }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+	<script src="./script.js"></script>
+</body>
+</html>
